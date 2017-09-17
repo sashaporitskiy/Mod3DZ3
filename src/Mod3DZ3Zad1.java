@@ -7,65 +7,89 @@ public class Mod3DZ3Zad1 {
         int r = in.nextInt();
         int[] lis = new int[r];
 
-        for (int i =0;i<r;i++) {
-                System.out.println("введите значение элемента массива");
-                lis[i]=in.nextInt();
-            }
+        //введите  массив
+        GetArr(lis,r,in);
+        //Вывод массива
+        SetArr(lis);
 
+        //вывод миниматоного значения массива
+        System.out.println("Результат поиск минимального значения массива = "+ SearchArrMin(lis));
+
+        //вывод макимального значения массива
+        System.out.println("Результат поиск максимального значения массива = "+ SearchArrMax(lis));
+
+        //вывод количества повторений числа 5
+        System.out.println("Результат поиска колличества повторений чиса 5 = "+ SearchFive(lis));
+
+        //сортировка методом пузырька
+        SortArr(lis);
+
+        SetArr(lis);
+    }
+    //Ввод элементов массива
+    public static void GetArr(int[] Arr,int raz,Scanner in){
+        for (int i =0;i<raz;i++) {
+            System.out.println("введите значение элемента массива "+i);
+            Arr[i]=in.nextInt();
+        }
+    }
+    //Вывод элементов массива
+    public static void SetArr(int[] Arr){
         System.out.print("введенный масив { ");
-        for (int i :lis) {
-            System.out.print(i+", ");
-        }
-        System.out.println(" } ");
-
-        System.out.println("поиск минимального значение массива");
-        int min  = lis[0];
-        for (int i =0;i<lis.length;i++) {
-
-            if (lis[i]<min) {
-                min = lis[i];
-            }
-        }
-        System.out.println("минимальное значение массива = "+ min);
-
-
-        System.out.println("поиск максимального значение массива");
-        int max  = lis[0];
-        for (int i =0;i<lis.length;i++) {
-
-            if (lis[i]>max) {
-                max = lis[i];
-            }
-        }
-        System.out.println("максималное значение массива = "+ max);
-
-        System.out.println("поиск колличества повторений чиса 5");
-        int maxf =0;
-        int m =5;
-        for (int i =0;i<lis.length;i++) {
-
-            if (lis[i]==m) {
-                maxf = maxf+1;
-            }
-        }
-        System.out.println("количество повторений числа 5  = "+ maxf);
-
-        System.out.println("Сортировка методом пузырька");
-        for (int i = lis.length - 1; i > 0; i--) {
-            for (int j = 0; j < i; j++) {
-                if (lis[j] > lis[j + 1]) {
-                    int t = lis[j];
-                    lis[j] = lis[j + 1];
-                    lis[j + 1] = t;
-                }
-            }
-        }
-
-        System.out.print("введенный масив { ");
-        for (int i :lis) {
+        for (int i :Arr) {
             System.out.print(i+", ");
         }
         System.out.println(" } ");
     }
 
+    //Поиск минимального значения массива
+    public static  int SearchArrMin(int[] Arr){
+        System.out.println("поиск минимального значение массива");
+        int min  = Arr[0];
+        for (int i =0;i<Arr.length;i++) {
+            if (Arr[i]<min) {
+                min = Arr[i];
+            }
+        }
+        return min;
+    }
+
+    //Поиск Максимального значения массива
+    public static  int SearchArrMax(int[] Arr){
+        System.out.println("поиск максимального значение массива");
+        int max  = Arr[0];
+        for (int i =0;i<Arr.length;i++) {
+            if (Arr[i]>max) {
+                max = Arr[i];
+            }
+        }
+        return max;
+    }
+
+    //Повывод количества повторений числа 5
+    public static  int SearchFive(int[] Arr){
+        int maxf =0;
+        int m =5;
+        for (int i =0;i<Arr.length;i++) {
+
+            if (Arr[i]==m) {
+                maxf = maxf+1;
+            }
+        }
+        return maxf;
+    }
+
+    //сортирвка методом пузырька
+    public static void SortArr(int[] Arr){
+        System.out.println("Сортировка методом пузырька");
+        for (int i = Arr.length - 1; i > 0; i--) {
+            for (int j = 0; j < i; j++) {
+                if (Arr[j] > Arr[j + 1]) {
+                    int t = Arr[j];
+                    Arr[j] = Arr[j + 1];
+                    Arr[j + 1] = t;
+                }
+            }
+        }
+    }
 }
