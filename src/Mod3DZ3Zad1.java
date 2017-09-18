@@ -24,7 +24,13 @@ public class Mod3DZ3Zad1 {
         //сортировка методом пузырька
         SortArr(lis);
 
+        //Вывод массива после сортировки
         SetArr(lis);
+
+        //вывести в консоль максимальное кол-во повторений чисел в массиве
+        PovtorNumbermax(lis);
+        //вывести в консоль минимальное кол-во повторений чисел в массиве
+        PovtorNumbermin(lis);
     }
     //Ввод элементов массива
     public static void GetArr(int[] Arr,int raz,Scanner in){
@@ -91,5 +97,47 @@ public class Mod3DZ3Zad1 {
                 }
             }
         }
+    }
+    //вывести в консоль максимальное кол-во повторений чисел в массиве
+    public static void PovtorNumbermax(int[] Arr){
+        int kolPovtorov =0;
+        int num = 0;
+        int kolPov=0;
+        for (int i =0;i<Arr.length;i++) {
+            if (kolPov > kolPovtorov){
+                if (num != Arr[i]) {
+                    kolPovtorov = kolPov;
+                    num = Arr[i-1];
+                }
+            }
+            kolPov=0;
+            for (int j =0;j<Arr.length;j++) {
+                if (Arr[i]==Arr[j]) {
+                    kolPov ++;
+                }
+            }
+        }
+        System.out.println("максимальное кол-во повторений чисел в массиве = "+kolPovtorov+" числа ->"+ num);
+    }
+    //вывести в консоль минимальное  кол-во повторений чисел в массиве
+    public static void PovtorNumbermin(int[] Arr){
+        int kolPovtorov =1;
+        int num = 0;
+        int kolPov=0;
+        for (int i =0;i<Arr.length;i++) {
+            if (kolPov < kolPovtorov){
+                if (num != Arr[i]) {
+                    kolPovtorov = kolPov;
+                    num = Arr[i-1];
+                }
+            }
+            kolPov=0;
+            for (int j =0;j<Arr.length;j++) {
+                if (Arr[i]==Arr[j]) {
+                    kolPov ++;
+                }
+            }
+        }
+        System.out.println("максимальное кол-во повторений чисел в массиве = "+kolPovtorov+" числа ->"+ num);
     }
 }
