@@ -10,6 +10,7 @@ public class DopZad3 {
         for(int i=0;i<numbers.length;i++) {
             lis[i] = Integer.parseInt(numbers[i]);
         }
+        
         System.out.print("введенный масив { ");
         for (int i :lis) {
             System.out.print(i+", ");
